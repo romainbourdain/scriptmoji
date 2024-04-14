@@ -1,0 +1,22 @@
+[build-system]
+requires=[""]
+build-backend=""
+
+[project]
+name="emoscript"
+version="0.1.0"
+description = "A scripting language using emojis"
+readme = "README.md"
+authors = [{name="Romain BOURDAIN", email="romain.bourdain@hotmail.fr"}]
+license = { file = "LICENSE" }
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+]
+keywords = ["emojis", "scripting", "language, interpreter"]
+dependencies = []
+requires-python = ">=3.9"
+
+[project.scripts]
+emoscript = "emoscript.__main__:main"
