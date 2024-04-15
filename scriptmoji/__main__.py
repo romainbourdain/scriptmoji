@@ -9,10 +9,10 @@ from typing import NoReturn
 
 def main() -> NoReturn:
     """
-    Main function of the scriptmoji application
-    It Loads the configuration, initializes the lexer, parser and executor,
-    parses the command line arguments and either executes a script file or
-    starts the shell
+    Entry point of the scriptmoji application.
+
+    This function loads the configuration, initializes the lexer, parser, and executor,
+    parses the command-line arguments, and either executes a script file or starts the interactive shell.
     """
 
     Config.load_config("pyproject.toml")

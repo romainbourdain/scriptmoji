@@ -18,9 +18,10 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.shell]
-cli_prompt = "🖊️"
+prompt_prefix = "🚀"
 error_prefix = "🚨"
-print_message = "🚀"
+result_prefix = "🤖"
+
 welcome_message = "👋 Welcome to Scriptmoji! 🎉"
 exit_message = "👋👋👋"
 

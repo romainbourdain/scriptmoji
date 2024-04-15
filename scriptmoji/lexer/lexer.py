@@ -1,4 +1,5 @@
 import ply.lex as lex
+from utils.cli import print_error
 
 
 class Lexer(object):
@@ -34,7 +35,7 @@ class Lexer(object):
     t_ignore = " \t"
 
     def t_error(self, t):
-        print(f"Illegal character {t.value[0]}")
+        print_error(f"Illegal character {t.value[0]}")
         t.lexer.skip(1)
 
     def __init__(self, **kwargs):

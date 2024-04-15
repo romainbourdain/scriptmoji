@@ -1,5 +1,6 @@
 import ply.yacc as yacc
 from runtime.node import Node
+from utils.cli import print_error
 
 
 class Yacc:
@@ -58,7 +59,7 @@ class Yacc:
             p[0] = p[2]
 
     def p_error(self, p):
-        print(f"Syntax error in input! ${p}")
+        print_error(f"Syntax error in input! ${p}")
 
     def parse(self, data) -> Node:
         return self.parser.parse(data, lexer=self.lexer.lexer)

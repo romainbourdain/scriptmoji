@@ -1,5 +1,6 @@
-from utils.debug import *
+from utils.cli import *
 from runtime.executor import Executor
+from utils.cli import prompt_input
 
 
 class Shell:
@@ -12,7 +13,7 @@ class Shell:
         print_welcome()
         while True:
             try:
-                command = input("🚀 ")
+                command = prompt_input()
                 if command.lower() == "exit":
                     print_exit()
                     break

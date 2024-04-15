@@ -1,19 +1,47 @@
 from runtime.node import Node
 from lexer.lexer import Lexer
 from parser.yacc import Yacc
+from utils.cli import print_result
 
 
 class Executor:
+    """
+    The Executor class is responsible for executing the parsed code.
+
+    Args:
+        lexer (Lexer): The lexer object used for tokenizing the code.
+        yacc (Yacc): The yacc object used for parsing the code.
+
+    Attributes:
+        lexer (Lexer): The lexer object used for tokenizing the code.
+        yacc (Yacc): The yacc object used for parsing the code.
+    """
+
     def __init__(self, lexer, yacc):
         self.lexer: Lexer = lexer
         self.yacc: Yacc = yacc
 
     def execute(self, code):
+        """
+        Executes the given code.
+
+        Args:
+            code (str): The code to be executed.
+        """
         ast = self.yacc.parse(code)
         result = self.run(ast)
-        print(result)
+        print_result(result)
 
-    def run(self, node: Node):
+    def run(self, node: Node) -> int:
+        """
+        Recursively runs the given AST node and returns the result.
+
+        Args:
+            node (Node): The AST node to be executed.
+
+        Returns:
+            The result of executing the AST node.
+        """
         if node is None:
             return None
 

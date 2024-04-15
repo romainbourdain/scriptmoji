@@ -1,8 +1,21 @@
-def emoji_to_number(emoji_sequence):
+def emoji_to_number(emoji_sequence: str) -> int:
     """
-    Convertit une séquence d'emojis en un nombre.
-    Cette fonction est utile dans le lexer pour convertir des emojis en nombres.
+    Converts an emoji sequence to a corresponding number.
+
+    Example:
+    >>> emoji_to_number("1️⃣2️⃣3️⃣")
+    123
+
+    Args:
+        emoji_sequence (str): The emoji sequence to convert.
+
+    Returns:
+        int: The corresponding number.
+
+    Raises:
+        ValueError: If an invalid emoji is found in the sequence.
     """
+
     emoji_map = {
         "0️⃣": 0,
         "1️⃣": 1,
