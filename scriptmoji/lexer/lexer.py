@@ -3,15 +3,22 @@ from utils.cli import print_error
 
 
 class Lexer(object):
+    """
+    The Lexer class is responsible for tokenizing input data into a sequence of tokens.
+
+    Attributes:
+        tokens (tuple): A tuple of token names.
+    """
+
     tokens = (
-        "NUMBER",  # les nombres (en hexadécimal)
-        "PLUS",  # pour les opérations +
-        "MINUS",  # pour les opérations -
-        "TIMES",  # pour les opérations *
-        "DIVIDE",  # pour les opérations /
-        "LPAREN",  # pour (
-        "RPAREN",  # pour )
-        "NEWLINE",  # pour les sauts de ligne
+        "NUMBER",
+        "PLUS",
+        "MINUS",
+        "TIMES",
+        "DIVIDE",
+        "LPAREN",
+        "RPAREN",
+        "NEWLINE",
     )
 
     t_PLUS = r"\+"
@@ -42,7 +49,19 @@ class Lexer(object):
         self.lexer = lex.lex(module=self, **kwargs)
 
     def input(self, data):
+        """
+        Sets the input data for the lexer.
+
+        Parameters:
+        - data: The input data to be processed by the lexer.
+        """
         self.lexer.input(data)
 
     def token(self):
+        """
+        Retrieves the next token from the lexer.
+
+        Returns:
+            The next token from the lexer.
+        """
         return self.lexer.token()
