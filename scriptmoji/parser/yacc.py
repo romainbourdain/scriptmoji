@@ -25,37 +25,37 @@ class Yacc:
         """
         p[0] = Node(type="statement", children=[p[1]])
 
-    def p_expression_plus(self, p):
-        "expression : expression PLUS term"
-        p[0] = Node(type="operation", children=[p[1], p[3]], operator="+")
+    def p_expression(self, p):
+        """
+        expression : expression PLUS expression
+                | expression MINUS expression
+                | term
+        """
+        if len(p) == 4:
+            p[0] = Node(type="operation", children=[p[1], p[3]], operator=p[2])
+        else:
+            p[0] = p[1]
 
-    def p_expression_minus(self, p):
-        "expression : expression MINUS term"
-        p[0] = Node(type="operation", children=[p[1], p[3]], operator="-")
+    def p_term(self, p):
+        """
+        term : term TIMES factor
+            | term DIVIDE factor
+            | factor
+        """
+        if len(p) == 4:
+            p[0] = Node(type="operation", children=[p[1], p[3]], operator=p[2])
+        else:
+            p[0] = p[1]
 
-    def p_expression_term(self, p):
-        "expression : term"
-        p[0] = p[1]
-
-    def p_term_times(self, p):
-        "term : term TIMES factor"
-        p[0] = Node(type="operation", children=[p[1], p[3]], operator="*")
-
-    def p_term_divide(self, p):
-        "term : term DIVIDE factor"
-        p[0] = Node(type="operation", children=[p[1], p[3]], operator="/")
-
-    def p_term_factor(self, p):
-        "term : factor"
-        p[0] = p[1]
-
-    def p_factor_number(self, p):
-        "factor : NUMBER"
-        p[0] = Node(type="number", value=p[1])
-
-    def p_expression_parenthesis(self, p):
-        "factor : LPAREN expression RPAREN"
-        p[0] = p[2]
+    def p_factor(self, p):
+        """
+        factor : NUMBER
+            | LPAREN expression RPAREN
+        """
+        if len(p) == 2:
+            p[0] = Node(type="number", value=p[1])
+        else:
+            p[0] = p[2]
 
     def p_error(self, p):
         print(f"Syntax error in input! ${p}")
