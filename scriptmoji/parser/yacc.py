@@ -1,6 +1,7 @@
 import ply.yacc as yacc
 from scriptmoji.runtime.node import Node
 from scriptmoji.utils.cli import print_error
+from scriptmoji.utils.emoji import emoji_to_operator
 
 
 class Yacc:
@@ -46,18 +47,26 @@ class Yacc:
                    | term
         """
         if len(p) == 4:
-            p[0] = Node(type="operation", children=[p[1], p[3]], operator=p[2])
+            p[0] = Node(
+                type="operation",
+                children=[p[1], p[3]],
+                operator=emoji_to_operator(p[2]),
+            )
         else:
             p[0] = p[1]
 
-    def p_term(self, p):
+    def p_term(self, p: yacc.YaccProduction):
         """
         term : term TIMES factor
              | term DIVIDE factor
              | factor
         """
         if len(p) == 4:
-            p[0] = Node(type="operation", children=[p[1], p[3]], operator=p[2])
+            p[0] = Node(
+                type="operation",
+                children=[p[1], p[3]],
+                operator=emoji_to_operator(p[2]),
+            )
         else:
             p[0] = p[1]
 

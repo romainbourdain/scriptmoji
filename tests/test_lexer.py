@@ -8,14 +8,14 @@ def lexer():
 
 
 def test_number(lexer):
-    lexer.input("123")
+    lexer.input("1️⃣2️⃣3️⃣")
     token = lexer.token()
     assert token.type == "NUMBER"
     assert token.value == 123
 
 
 def test_operator(lexer):
-    operators = {"+": "PLUS", "-": "MINUS", "*": "TIMES", "/": "DIVIDE"}
+    operators = {"💀": "PLUS", "🍫": "MINUS", "⛪️": "TIMES", "🤴": "DIVIDE"}
     for op, expected in operators.items():
         lexer.input(op)
         token = lexer.token()
@@ -23,7 +23,7 @@ def test_operator(lexer):
 
 
 def test_parentheses(lexer):
-    lexer.input("()")
+    lexer.input("🫷🫸")
     token = lexer.token()
     assert token.type == "LPAREN"
     token = lexer.token()

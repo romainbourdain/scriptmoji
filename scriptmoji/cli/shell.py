@@ -27,7 +27,7 @@ class Shell:
         while True:
             try:
                 command = prompt_input()
-                if command.lower() == "exit":
+                if command.lower() == "🫡":
                     print_exit()
                     break
 

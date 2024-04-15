@@ -29,9 +29,44 @@ def emoji_to_number(emoji_sequence: str) -> int:
         "9️⃣": 9,
     }
     number_str = ""
-    for emoji in emoji_sequence:
+    sample_emoji_len = len(next(iter(emoji_map)))
+
+    for i in range(0, len(emoji_sequence), sample_emoji_len):
+        emoji = emoji_sequence[i : i + sample_emoji_len]
+
         if emoji in emoji_map:
             number_str += str(emoji_map[emoji])
         else:
             raise ValueError(f"Invalid emoji {emoji} in sequence")
+
     return int(number_str)
+
+
+def emoji_to_operator(emoji: str) -> str:
+    """
+    Converts an emoji to a corresponding operator.
+
+    Example:
+    >>> emoji_to_operator("💀")
+    "+"
+
+    Args:
+        emoji (str): The emoji to convert.
+
+    Returns:
+        str: The corresponding operator.
+
+    Raises:
+        ValueError: If an invalid emoji is found.
+    """
+
+    operator_map = {
+        "💀": "+",
+        "🍫": "-",
+        "⛪️": "*",
+        "🤴": "/",
+    }
+    if emoji in operator_map:
+        return operator_map[emoji]
+    else:
+        raise ValueError(f"Invalid emoji {emoji}")

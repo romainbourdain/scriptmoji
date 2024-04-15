@@ -22,9 +22,9 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.shell]
-prompt_prefix = "🚀"
+prompt_prefix = "👉"
 error_prefix = "🚨"
-result_prefix = "🤖"
+result_prefix = "🚀"
 
 welcome_message = "👋 Welcome to Scriptmoji! 🎉"
 exit_message = "👋👋👋"

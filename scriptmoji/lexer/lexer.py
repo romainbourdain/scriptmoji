@@ -1,5 +1,6 @@
 import ply.lex as lex
 from scriptmoji.utils.cli import print_error
+from scriptmoji.utils.emoji import emoji_to_number
 
 
 class Lexer(object):
@@ -21,16 +22,16 @@ class Lexer(object):
         "NEWLINE",
     )
 
-    t_PLUS = r"\+"
-    t_MINUS = r"-"
-    t_TIMES = r"\*"
-    t_DIVIDE = r"/"
-    t_LPAREN = r"\("
-    t_RPAREN = r"\)"
+    t_PLUS = r"💀"
+    t_MINUS = r"🍫"
+    t_TIMES = r"⛪️"
+    t_DIVIDE = r"🤴"
+    t_LPAREN = r"🫷"
+    t_RPAREN = r"🫸"
 
     def t_NUMBER(self, t):
-        r"\d+"
-        t.value = int(t.value)
+        r"[0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣]+"
+        t.value = emoji_to_number(t.value)
         return t
 
     def t_newline(self, t):
