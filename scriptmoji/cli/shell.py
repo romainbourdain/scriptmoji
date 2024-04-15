@@ -18,7 +18,7 @@ class Shell:
                     break
 
                 if command.strip():
-                    self.executor.run(command)
+                    self.executor.execute(command)
 
             except Exception as e:
                 print_error(str(e))

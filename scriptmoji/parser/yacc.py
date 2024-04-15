@@ -8,13 +8,30 @@ class Yacc:
         self.lexer = lexer
         self.parser = yacc.yacc(module=self)
 
+    def p_statement(self, p):
+        """
+        statements : statements statement
+                | statement
+        """
+        if len(p) == 3:
+            p[0] = Node(type="statements", children=p[1].children + [p[2]])
+        else:
+            p[0] = Node(type="statements", children=[p[1]])
+
+    def p_statement_expression(self, p):
+        """
+        statement : expression NEWLINE
+                | expression
+        """
+        p[0] = Node(type="statement", children=[p[1]])
+
     def p_expression_plus(self, p):
         "expression : expression PLUS term"
-        p[0] = Node(type="operation", left=p[1], right=p[3], operator="+")
+        p[0] = Node(type="operation", children=[p[1], p[3]], operator="+")
 
     def p_expression_minus(self, p):
         "expression : expression MINUS term"
-        p[0] = Node(type="operation", left=p[1], right=p[3], operator="-")
+        p[0] = Node(type="operation", children=[p[1], p[3]], operator="-")
 
     def p_expression_term(self, p):
         "expression : term"
@@ -22,11 +39,11 @@ class Yacc:
 
     def p_term_times(self, p):
         "term : term TIMES factor"
-        p[0] = Node(type="operation", left=p[1], right=p[3], operator="*")
+        p[0] = Node(type="operation", children=[p[1], p[3]], operator="*")
 
     def p_term_divide(self, p):
         "term : term DIVIDE factor"
-        p[0] = Node(type="operation", left=p[1], right=p[3], operator="/")
+        p[0] = Node(type="operation", children=[p[1], p[3]], operator="/")
 
     def p_term_factor(self, p):
         "term : factor"

@@ -8,17 +8,18 @@ class Executor:
         self.lexer: Lexer = lexer
         self.yacc: Yacc = yacc
 
-    def run(self, code):
+    def execute(self, code):
         ast = self.yacc.parse(code)
-        result = self.execute(ast)
+        result = self.run(ast)
         print(result)
 
-    def execute(self, node: Node):
+    def run(self, node: Node):
         if node is None:
             return None
+
         if node.type == "operation":
-            left_val = self.execute(node.left)
-            right_val = self.execute(node.right)
+            left_val = self.run(node.children[0])
+            right_val = self.run(node.children[1])
 
             match node.operator:
                 case "+":
@@ -32,3 +33,12 @@ class Executor:
 
         elif node.type == "number":
             return node.value
+
+        elif node.type == "statements":
+            result = None
+            for child in node.children:
+                result = self.run(child)
+            return result
+
+        elif node.type == "statement":
+            return self.run(node.children[0])

@@ -1,7 +1,6 @@
 class Node:
-    def __init__(self, type, value=None, left=None, right=None, operator=None):
+    def __init__(self, type, value=None, children=[], operator=None):
         self.type = type
+        self.children = children
         self.value = value
-        self.left = left
-        self.right = right
         self.operator = operator

@@ -10,6 +10,7 @@ class Lexer(object):
         "DIVIDE",  # pour les opérations /
         "LPAREN",  # pour (
         "RPAREN",  # pour )
+        "NEWLINE",  # pour les sauts de ligne
     )
 
     t_PLUS = r"\+"
@@ -27,6 +28,8 @@ class Lexer(object):
     def t_newline(self, t):
         r"\n+"
         t.lexer.lineno += len(t.value)
+        t.type = "NEWLINE"
+        return t
 
     t_ignore = " \t"
 
