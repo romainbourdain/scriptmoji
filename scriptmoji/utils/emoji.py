@@ -61,10 +61,10 @@ def emoji_to_operator(emoji: str) -> str:
     """
 
     operator_map = {
-        "💀": "+",
-        "🍫": "-",
-        "⛪️": "*",
-        "🤴": "/",
+        "🙂": "+",
+        "🙁": "-",
+        "😁": "*",
+        "😫": "/",
     }
     if emoji in operator_map:
         return operator_map[emoji]

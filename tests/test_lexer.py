@@ -15,7 +15,7 @@ def test_number(lexer):
 
 
 def test_operator(lexer):
-    operators = {"💀": "PLUS", "🍫": "MINUS", "⛪️": "TIMES", "🤴": "DIVIDE"}
+    operators = {"🙂": "PLUS", "🙁": "MINUS", "😁": "TIMES", "😫": "DIVIDE"}
     for op, expected in operators.items():
         lexer.input(op)
         token = lexer.token()
