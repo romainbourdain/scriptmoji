@@ -3,7 +3,7 @@ from pathlib import Path
 import toml
 
 
-class Parser(ArgumentParser):
+class ArgParser(ArgumentParser):
     def __init__(self):
         self.load_config()
         super().__init__(
@@ -32,7 +32,7 @@ class Parser(ArgumentParser):
             "-i",
             "--input",
             help="File to read",
-            required=True,
+            default="",
             type=str,
             action="store",
         )

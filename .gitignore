@@ -1,0 +1,7 @@
+**/__pycache__/
+**/parser.out
+**/parsetab.py
+
+# Ignore the virtual environment
+env/
+

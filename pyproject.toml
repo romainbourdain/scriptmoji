@@ -1,22 +1,28 @@
+[tool.poetry]
+name = "scriptmoji"
+version = "0.1.0"
+description = "A programming language that uses emojis as syntax."
+authors = ["Romain Bourdain <romain.bourdain93@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ply = "^3.11"
+toml = "^0.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+
 [build-system]
-requires=[""]
-build-backend=""
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
-[project]
-name="emoscript"
-version="0.1.0"
-description = "A scripting language using emojis"
-readme = "README.md"
-authors = [{name="Romain BOURDAIN", email="romain.bourdain@hotmail.fr"}]
-license = { file = "LICENSE" }
-classifiers = [
-  "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
-]
-keywords = ["emojis", "scripting", "language, interpreter"]
-dependencies = []
-requires-python = ">=3.9"
+[tool.shell]
+cli_prompt = "🖊️"
+error_prefix = "🚨"
+print_message = "🚀"
+welcome_message = "👋 Welcome to Scriptmoji! 🎉"
+exit_message = "👋👋👋"
 
-[project.scripts]
-emoscript = "emoscript.__main__:main"
+[tool.poetry.scripts]
+scriptmoji = "scriptmoji.__main__:main"
