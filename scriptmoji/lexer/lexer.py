@@ -1,5 +1,5 @@
 import ply.lex as lex
-from utils.cli import print_error
+from scriptmoji.utils.cli import print_error
 
 
 class Lexer(object):

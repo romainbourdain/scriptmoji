@@ -1,7 +1,7 @@
-from runtime.node import Node
-from lexer.lexer import Lexer
-from parser.yacc import Yacc
-from utils.cli import print_result
+from scriptmoji.runtime.node import Node
+from scriptmoji.lexer.lexer import Lexer
+from scriptmoji.parser.yacc import Yacc
+from scriptmoji.utils.cli import print_result
 
 
 class Executor:

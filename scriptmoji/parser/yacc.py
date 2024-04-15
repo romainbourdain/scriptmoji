@@ -1,6 +1,6 @@
 import ply.yacc as yacc
-from runtime.node import Node
-from utils.cli import print_error
+from scriptmoji.runtime.node import Node
+from scriptmoji.utils.cli import print_error
 
 
 class Yacc:

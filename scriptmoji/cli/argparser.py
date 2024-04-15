@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
-from utils.config import Config
+from scriptmoji.utils.config import Config
 
 
 class ArgParser(ArgumentParser):

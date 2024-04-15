@@ -1,4 +1,4 @@
-from utils.config import Config
+from scriptmoji.utils.config import Config
 import sys
 
 
@@ -49,16 +49,14 @@ def print_result(result: str):
 import sys
 
 
-def print_error(message: str, code: int = 1):
+def print_error(message: str):
     """
-    Prints an error message with a specified code and exits the program.
+    Prints an error message
     Use the error_prefix from the configuration file.
 
     Args:
         message (str): The error message to be printed.
-        code (int, optional): The exit code to be used. Defaults to 1.
     """
     config = Config.get_config()
     error_prefix = config["tool"]["shell"]["error_prefix"]
     print(f"{error_prefix} {message}")
-    sys.exit(code)

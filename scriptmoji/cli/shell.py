@@ -1,6 +1,6 @@
-from utils.cli import *
-from runtime.executor import Executor
-from utils.cli import prompt_input
+from scriptmoji.utils.cli import *
+from scriptmoji.runtime.executor import Executor
+from scriptmoji.utils.cli import prompt_input
 
 
 class Shell:

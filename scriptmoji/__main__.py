@@ -1,9 +1,9 @@
-from lexer.lexer import Lexer
-from parser.yacc import Yacc
-from runtime.executor import Executor
-from utils.config import Config
-from cli.argparser import ArgParser
-from cli.shell import Shell
+from scriptmoji.lexer.lexer import Lexer
+from scriptmoji.parser.yacc import Yacc
+from scriptmoji.runtime.executor import Executor
+from scriptmoji.utils.config import Config
+from scriptmoji.cli.argparser import ArgParser
+from scriptmoji.cli.shell import Shell
 from typing import NoReturn
 
 
